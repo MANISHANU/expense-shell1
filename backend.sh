@@ -2,7 +2,7 @@
 
 source ./common.sh
 
-check-user
+check_user
 
 echo "Please enter DB password:"
 read -s mysql_root_password

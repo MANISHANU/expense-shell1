@@ -13,7 +13,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-check-user()
+check_user()
 {
 
 if [ $USERID -ne 0 ]
