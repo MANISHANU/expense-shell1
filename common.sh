@@ -32,7 +32,7 @@ VALIDATE(){
 
 
 
-check_user()
+check_root()
 {
 if [ $USERID -ne 0 ]
 then
