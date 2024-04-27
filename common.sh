@@ -4,7 +4,7 @@ set -e
 
 error_handling()
 {
-    Failed at $1 with error :$2
+    echo " Failed at $1 with error: $2 "
 }
 
 trap 'error_handling  ${LINENO} "$BASH_COMMAND"' ERR 
