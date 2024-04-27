@@ -2,6 +2,13 @@
 
 set -e 
 
+error_handling()
+{
+    Failed at $1 with error :$2
+}
+
+trap 'error_handling  ${LINENO} "$BASH_COMMAND" 'ERR 
+
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
@@ -10,6 +17,20 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+
+
+VALIDATE(){
+   if [ $1 -ne 0 ]
+   then
+        echo -e "$2...$R FAILURE $N"
+        exit 1
+    else
+        echo -e "$2...$G SUCCESS $N"
+    fi
+}
+
+
+
 
 check_user()
 {
