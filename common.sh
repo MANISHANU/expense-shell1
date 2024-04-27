@@ -7,7 +7,7 @@ error_handling()
     Failed at $1 with error :$2
 }
 
-trap 'error_handling  ${LINENO} "$BASH_COMMAND" 'ERR 
+trap 'error_handling  ${LINENO} "$BASH_COMMAND"' ERR 
 
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
