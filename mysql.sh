@@ -19,11 +19,12 @@ VALIDATE $? "Enabling MySQL Server"
 systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "Starting MySQL Server"
 
-# mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
 # VALIDATE $? "Setting up root password"
 
 #Below code will be useful for idempotent nature
 mysql -h db.ramani280791.online -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
+
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
