@@ -1,10 +1,8 @@
+
 #!/bin/bash
 
 source ./common.sh
-
-check_user
-
-
+check_root
 
 dnf install nginx -y &>>$LOGFILE
 VALIDATE $? "Installing nginx"
